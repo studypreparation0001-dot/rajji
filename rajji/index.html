@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Tirth 💕 Rajeshwari — May 23, NYC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --pink: #f472b6;
+    --deep-pink: #db2777;
+    --purple: #a855f7;
+    --gold: #fbbf24;
+    --cream: #fef3c7;
+    --dark: #0a0015;
+    --dark2: #120025;
+    --rose: #ff6b9d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    min-height: 100%;
+    width: 100%;
+    background: var(--dark);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── BACKGROUND ── */
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 15% 40%, rgba(168,85,247,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 15%, rgba(244,114,182,0.2) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 40% at 60% 90%, rgba(251,191,36,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 80% at 50% 50%, rgba(219,39,119,0.08) 0%, transparent 70%),
+      linear-gradient(160deg, #0a0015 0%, #12002a 35%, #0a001f 65%, #0f0a00 100%);
+  }
+
+  /* ── STARS ── */
+  #stars { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: twinkle var(--dur, 3s) ease-in-out infinite alternate;
+    animation-delay: var(--delay, 0s);
+  }
+  @keyframes twinkle {
+    from { opacity: 0.05; transform: scale(0.7); }
+    to { opacity: var(--max-op, 0.9); transform: scale(1.3); }
+  }
+
+  /* ── PETALS ── */
+  #petals { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+  .petal {
+    position: absolute;
+    top: -40px;
+    font-size: var(--sz, 16px);
+    animation: petalFall var(--fdur, 10s) linear infinite;
+    animation-delay: var(--fdelay, 0s);
+    opacity: 0;
+  }
+  @keyframes petalFall {
+    0%   { transform: translateY(0) rotate(0deg) translateX(0px); opacity: 0; }
+    5%   { opacity: 0.7; }
+    50%  { transform: translateY(50vh) rotate(200deg) translateX(var(--drift, 30px)); opacity: 0.6; }
+    95%  { opacity: 0.4; }
+    100% { transform: translateY(108vh) rotate(400deg) translateX(calc(var(--drift, 30px) * 1.5)); opacity: 0; }
+  }
+
+  /* ── LAYOUT ── */
+  .main {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1rem 4rem;
+    gap: 0;
+  }
+
+  /* ── MUSIC TOUCH BANNER ── */
+  .music-tap {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background: rgba(244,114,182,0.15);
+    border: 1px solid rgba(244,114,182,0.35);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    animation: floatBtn 3s ease-in-out infinite;
+  }
+  .music-tap:hover { background: rgba(244,114,182,0.3); border-color: rgba(244,114,182,0.6); }
+  .music-tap.playing { background: rgba(251,191,36,0.15); border-color: rgba(251,191,36,0.4); color: #fbbf24; }
+  @keyframes floatBtn {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-5px); }
+  }
+
+  .music-note { display: inline-block; margin-right: 6px; animation: spinNote 2s linear infinite; }
+  @keyframes spinNote { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+  /* ── HEADER TAG ── */
+  .header-pill {
+    background: rgba(251,191,36,0.1);
+    border: 1px solid rgba(251,191,36,0.25);
+    border-radius: 50px;
+    padding: 6px 22px;
+    font-size: 0.68rem;
+    color: #fbbf24;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+    font-weight: 500;
+  }
+
+  /* ── NAMES ── */
+  .names-block { text-align: center; margin-bottom: 0.5rem; }
+  .names-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 11vw, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fbbf24 0%, #f472b6 30%, #c084fc 60%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 30px rgba(244,114,182,0.4));
+  }
+  .names-and {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 6vw, 2.6rem);
+    font-weight: 300;
+    color: rgba(251,191,36,0.75);
+    display: block;
+    margin: 0.1rem 0;
+  }
+  .tagline {
+    font-size: clamp(0.65rem, 2.5vw, 0.82rem);
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 1.5px;
+    font-style: italic;
+    margin-top: 0.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    font-weight: 300;
+  }
+
+  /* ── ILLUSTRATION ── */
+  .illo-wrap {
+    width: min(320px, 88vw);
+    margin: 1.6rem auto 0.5rem;
+    position: relative;
+  }
+  .illo-wrap svg { width: 100%; height: auto; }
+  .illo-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,114,182,0.18) 0%, transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  @keyframes glowPulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+
+  /* ── COUNTDOWN ── */
+  .cd-section { width: min(500px, 96vw); margin: 1.8rem auto 0; }
+  .cd-section-label {
+    text-align: center;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .cd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(7px, 2.5vw, 14px); }
+
+  .cd-box {
+    position: relative;
+    background: rgba(255,255,255,0.035);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: clamp(14px, 4vw, 24px) 8px;
+    text-align: center;
+    overflow: hidden;
+    transition: border-color 0.4s;
+  }
+  .cd-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    opacity: 0;
+    background: var(--box-glow);
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .cd-box.flash::after { animation: flashGlow 0.6s ease-out forwards; }
+  @keyframes flashGlow { 0%{opacity:0.5} 100%{opacity:0} }
+
+  .cd-box:nth-child(1) { --box-glow: radial-gradient(circle, rgba(251,191,36,0.25), transparent 70%); }
+  .cd-box:nth-child(2) { --box-glow: radial-gradient(circle, rgba(244,114,182,0.25), transparent 70%); }
+  .cd-box:nth-child(3) { --box-glow: radial-gradient(circle, rgba(168,85,247,0.25), transparent 70%); }
+  .cd-box:nth-child(4) { --box-glow: radial-gradient(circle, rgba(103,232,249,0.25), transparent 70%); }
+
+  .cd-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 8vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+    display: block;
+    transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .cd-num.bump { transform: scale(1.18); }
+  .cd-box:nth-child(1) .cd-num { color: #fbbf24; }
+  .cd-box:nth-child(2) .cd-num { color: #f472b6; }
+  .cd-box:nth-child(3) .cd-num { color: #c084fc; }
+  .cd-box:nth-child(4) .cd-num { color: #67e8f9; }
+  .cd-lbl {
+    font-size: clamp(0.52rem, 1.8vw, 0.65rem);
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ── DATE BADGE ── */
+  .date-badge {
+    margin: 1.4rem auto 0;
+    text-align: center;
+  }
+  .date-badge-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(251,191,36,0.18);
+    border-radius: 50px;
+    padding: 9px 22px;
+    font-size: clamp(0.68rem, 2.2vw, 0.82rem);
+    color: rgba(255,220,150,0.75);
+    letter-spacing: 0.8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 3vw, 1.05rem);
+  }
+  .date-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(251,191,36,0.5); }
+
+  /* ── HOBOKEN CARD ── */
+  .hoboken-card {
+    width: min(480px, 94vw);
+    margin: 2rem auto 0;
+    background: rgba(255,255,255,0.032);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 1.4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hoboken-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #fbbf24, #f472b6, #a855f7, #67e8f9);
+    border-radius: 20px 20px 0 0;
+  }
+  .hoboken-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    color: white;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hoboken-title span { font-size: 1.3em; }
+  .hoboken-spots { display: flex; flex-direction: column; gap: 10px; }
+  .spot {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .spot-icon {
+    font-size: 1.4rem;
+    min-width: 32px;
+    text-align: center;
+    margin-top: 2px;
+  }
+  .spot-info { flex: 1; }
+  .spot-name {
+    font-size: clamp(0.78rem, 2.5vw, 0.88rem);
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2px;
+  }
+  .spot-desc {
+    font-size: clamp(0.65rem, 2vw, 0.74rem);
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .spot-tag {
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+  .tag-date { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .tag-food { background: rgba(244,114,182,0.15); color: #f472b6; }
+  .tag-view { background: rgba(103,232,249,0.15); color: #67e8f9; }
+  .tag-walk { background: rgba(168,85,247,0.15); color: #c084fc; }
+
+  /* ── FILM STRIP ── */
+  .film-strip {
+    width: min(480px, 94vw);
+    margin: 2rem auto 0;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+  }
+  .film-holes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .film-hole {
+    width: 13px; height: 13px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .film-inner { text-align: center; padding: 0.3rem 0; }
+  .film-label {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .film-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    color: rgba(255,210,150,0.88);
+    line-height: 1.5;
+    transition: opacity 0.5s;
+    min-height: 3.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hearts-pulse {
+    font-size: 1.1rem;
+    color: rgba(244,114,182,0.7);
+    letter-spacing: 8px;
+    margin-top: 8px;
+    animation: heartPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes heartPulse {
+    0%,100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  /* ── MOSAIC CHIPS ── */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 1.8rem auto 0;
+    width: min(480px, 94vw);
+  }
+  .chip {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: clamp(0.62rem, 2vw, 0.72rem);
+    color: rgba(255,255,255,0.45);
+    white-space: nowrap;
+  }
+
+  /* ── BOTTOM NOTE ── */
+  .bottom-note {
+    text-align: center;
+    margin: 2rem auto 5rem;
+    font-size: clamp(0.6rem, 2vw, 0.7rem);
+    color: rgba(255,255,255,0.15);
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  /* ── ARRIVED SCREEN ── */
+  #arrivedScreen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(10,0,21,0.95);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  #arrivedScreen.show { display: flex; }
+  .arrived-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 9vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffd700, #ff69b4, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 2s ease-in-out infinite;
+    margin-bottom: 1rem;
+  }
+  @keyframes shimmer { 0%,100%{filter:brightness(1)} 50%{filter:brightness(1.4)} }
+  .arrived-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1.5rem;
+  }
+  .arrived-hearts { font-size: 3rem; animation: heartPulse 1s infinite; }
+
+  /* ── FIREWORK ── */
+  .fw {
+    position: fixed;
+    pointer-events: none;
+    z-index: 600;
+    font-size: 2rem;
+    animation: fwExplode 1.5s ease-out forwards;
+  }
+  @keyframes fwExplode {
+    0% { transform: scale(0) rotate(0); opacity: 1; }
+    100% { transform: scale(4) rotate(720deg); opacity: 0; }
+  }
+
+  /* ── RESPONSIVE TWEAKS ── */
+  @media (max-width: 400px) {
+    .hoboken-card { padding: 1rem; }
+    .spot { padding: 8px 10px; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div id="stars"></div>
+<div id="petals"></div>
+
+<!-- MUSIC (touch to play) -->
+<audio id="bgMusic" loop preload="none">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"/>
+</audio>
+
+<div class="music-tap" id="musicBtn" onclick="toggleMusic()">
+  <span class="music-note" id="musicNote">♪</span>
+  <span id="musicLabel">Tap to play our song</span>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <div class="header-pill">🎬 A Bollywood Love Story</div>
+
+  <div class="names-block">
+    <div class="names-title">
+      Tirth
+      <span class="names-and">&amp;</span>
+      Rajeshwari
+    </div>
+    <div class="tagline">✨ Milne ki raah mein... har second count hota hai ✨</div>
+  </div>
+
+  <!-- ILLUSTRATION -->
+  <div class="illo-wrap">
+    <div class="illo-glow"></div>
+    <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="moonG" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fffde7" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#fffde7" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="skyG" cx="50%" cy="0%" r="100%">
+          <stop offset="0%" stop-color="#1a0a2e"/>
+          <stop offset="100%" stop-color="#0a0015"/>
+        </radialGradient>
+        <radialGradient id="cityG" cx="50%" cy="0%" r="100%">
+          <stop offset="0%" stop-color="#1a0535"/>
+          <stop offset="100%" stop-color="#0a0020"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Sky -->
+      <rect width="320" height="220" fill="url(#skyG)" rx="14"/>
+
+      <!-- Moon glow -->
+      <circle cx="260" cy="45" r="35" fill="url(#moonG)"/>
+      <circle cx="260" cy="45" r="20" fill="#fffde7" opacity="0.9"/>
+      <circle cx="253" cy="40" r="4" fill="#f5e100" opacity="0.15"/>
+      <circle cx="266" cy="50" r="3" fill="#f5e100" opacity="0.12"/>
+
+      <!-- NYC skyline silhouette (Hoboken view) -->
+      <g opacity="0.55">
+        <!-- Buildings far left -->
+        <rect x="0" y="130" width="14" height="50" fill="#150030"/>
+        <rect x="14" y="145" width="10" height="35" fill="#150030"/>
+        <rect x="24" y="125" width="18" height="55" fill="#160035"/>
+        <rect x="42" y="138" width="12" height="42" fill="#150030"/>
+        <!-- Empire State style center -->
+        <rect x="130" y="95" width="22" height="85" fill="#1a003d"/>
+        <rect x="136" y="80" width="10" height="20" fill="#1a003d"/>
+        <rect x="139" y="70" width="4" height="12" fill="#1a003d"/>
+        <!-- Other tall buildings -->
+        <rect x="55" y="118" width="20" height="62" fill="#160030"/>
+        <rect x="75" y="128" width="16" height="52" fill="#150030"/>
+        <rect x="91" y="108" width="24" height="72" fill="#1a0035"/>
+        <rect x="115" y="120" width="15" height="60" fill="#150030"/>
+        <rect x="152" y="115" width="18" height="65" fill="#160030"/>
+        <rect x="170" y="125" width="14" height="55" fill="#150030"/>
+        <rect x="184" y="105" width="22" height="75" fill="#1a0035"/>
+        <rect x="206" y="130" width="16" height="50" fill="#150030"/>
+        <rect x="222" y="118" width="20" height="62" fill="#160030"/>
+        <rect x="242" y="138" width="14" height="42" fill="#150030"/>
+        <rect x="256" y="125" width="18" height="55" fill="#150030"/>
+        <rect x="274" y="135" width="12" height="45" fill="#140028"/>
+        <rect x="286" y="128" width="20" height="52" fill="#140028"/>
+        <rect x="306" y="142" width="14" height="38" fill="#140028"/>
+      </g>
+
+      <!-- City lights (small dots in buildings) -->
+      <g fill="#ffd700" opacity="0.3">
+        <rect x="133" y="100" width="2" height="2"/>
+        <rect x="138" y="110" width="2" height="2"/>
+        <rect x="133" y="120" width="2" height="2"/>
+        <rect x="138" y="130" width="2" height="2"/>
+        <rect x="95" y="115" width="2" height="2"/>
+        <rect x="101" y="122" width="2" height="2"/>
+        <rect x="186" y="112" width="2" height="2"/>
+        <rect x="192" y="120" width="2" height="2"/>
+        <rect x="60" y="128" width="2" height="2"/>
+        <rect x="228" y="125" width="2" height="2"/>
+      </g>
+
+      <!-- Hudson River reflection -->
+      <rect x="0" y="180" width="320" height="40" fill="#050010" rx="0"/>
+      <g opacity="0.18">
+        <rect x="130" y="185" width="22" height="3" fill="#fffde7" rx="1"/>
+        <rect x="91" y="188" width="15" height="2" fill="#fffde7" rx="1"/>
+        <rect x="184" y="186" width="18" height="3" fill="#fffde7" rx="1"/>
+        <circle cx="260" cy="193" r="8" fill="#fffde7" opacity="0.4"/>
+      </g>
+
+      <!-- Ground / Hoboken waterfront -->
+      <rect x="0" y="170" width="320" height="12" fill="#0d001f"/>
+      <path d="M0 170 Q80 165 160 170 Q240 175 320 170 L320 182 L0 182Z" fill="#100025"/>
+
+      <!-- TIRTH character -->
+      <g transform="translate(95, 100)">
+        <!-- Body shadow -->
+        <ellipse cx="18" cy="72" rx="16" ry="5" fill="#000" opacity="0.3"/>
+        <!-- Legs/pants -->
+        <rect x="10" y="52" width="7" height="20" rx="3" fill="#1e3a5f"/>
+        <rect x="19" y="52" width="7" height="20" rx="3" fill="#1e3a5f"/>
+        <!-- Shoes -->
+        <ellipse cx="13" cy="72" rx="6" ry="3" fill="#1a1a2e"/>
+        <ellipse cx="22" cy="72" rx="6" ry="3" fill="#1a1a2e"/>
+        <!-- Shirt/kurta -->
+        <path d="M8 28 Q18 24 28 28 L30 55 Q18 58 6 55 Z" fill="#2d5a8e"/>
+        <path d="M14 28 L16 45 L18 28Z" fill="rgba(255,255,255,0.08)"/>
+        <!-- Left arm (extended toward Raju) -->
+        <path d="M8 32 Q2 40 6 52" stroke="#c8915a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <!-- Right arm -->
+        <path d="M28 32 Q34 42 30 50" stroke="#c8915a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <!-- Neck -->
+        <rect x="14" y="22" width="8" height="8" rx="2" fill="#c8915a"/>
+        <!-- Head -->
+        <ellipse cx="18" cy="14" rx="11" ry="12" fill="#c8915a"/>
+        <!-- Hair -->
+        <path d="M7 10 Q10 0 18 -1 Q26 0 29 10 Q26 4 18 3 Q10 4 7 10Z" fill="#1a0a04"/>
+        <!-- Eyes -->
+        <ellipse cx="14" cy="13" rx="2" ry="2.5" fill="white"/>
+        <ellipse cx="22" cy="13" rx="2" ry="2.5" fill="white"/>
+        <ellipse cx="14" cy="13.5" rx="1.2" ry="1.5" fill="#2c1810"/>
+        <ellipse cx="22" cy="13.5" rx="1.2" ry="1.5" fill="#2c1810"/>
+        <!-- Smile -->
+        <path d="M13 19 Q18 23 23 19" stroke="#8b4513" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <!-- RAJESHWARI character -->
+      <g transform="translate(185, 95)">
+        <!-- Body shadow -->
+        <ellipse cx="18" cy="77" rx="16" ry="5" fill="#000" opacity="0.3"/>
+        <!-- Lehenga/skirt -->
+        <path d="M8 55 Q18 50 28 55 L34 77 Q18 80 2 77 Z" fill="#c2185b"/>
+        <!-- Lehenga design -->
+        <path d="M10 57 Q18 53 26 57 L28 65 Q18 67 8 65Z" fill="#e91e8c" opacity="0.6"/>
+        <!-- Blouse -->
+        <path d="M10 32 Q18 28 26 32 L28 55 Q18 57 8 55 Z" fill="#f06292"/>
+        <!-- Dupatta -->
+        <path d="M26 30 Q36 35 38 50 Q30 48 28 42Z" fill="#ff80ab" opacity="0.7"/>
+        <path d="M4 40 Q-2 48 0 58 Q6 54 8 48Z" fill="#ff80ab" opacity="0.5"/>
+        <!-- Left arm reaching to Tirth -->
+        <path d="M10 36 Q4 44 8 54" stroke="#c8a080" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <!-- Right arm -->
+        <path d="M26 36 Q32 44 28 52" stroke="#c8a080" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <!-- Neck -->
+        <rect x="14" y="24" width="8" height="8" rx="2" fill="#c8a080"/>
+        <!-- Head -->
+        <ellipse cx="18" cy="15" rx="11" ry="12" fill="#c8a080"/>
+        <!-- Long hair -->
+        <path d="M7 10 Q10-2 18 -2 Q26-2 29 10 Q22 4 18 3 Q14 4 7 10Z" fill="#100804"/>
+        <path d="M6 10 Q2 25 4 40 Q8 35 9 22 Q8 15 6 10Z" fill="#100804"/>
+        <path d="M30 10 Q34 22 32 38 Q28 32 29 20 Q30 15 30 10Z" fill="#100804"/>
+        <!-- Bindi -->
+        <circle cx="18" cy="8" r="2" fill="#c2185b"/>
+        <!-- Eyes (with kajal) -->
+        <ellipse cx="13.5" cy="14" rx="2.2" ry="2" fill="white"/>
+        <ellipse cx="22.5" cy="14" rx="2.2" ry="2" fill="white"/>
+        <ellipse cx="13.5" cy="14.2" rx="1.4" ry="1.3" fill="#1a0804"/>
+        <ellipse cx="22.5" cy="14.2" rx="1.4" ry="1.3" fill="#1a0804"/>
+        <!-- Eyeliner -->
+        <path d="M11 13 Q13.5 11.5 16 13" stroke="#000" stroke-width="0.8" fill="none"/>
+        <path d="M20 13 Q22.5 11.5 25 13" stroke="#000" stroke-width="0.8" fill="none"/>
+        <!-- Smile -->
+        <path d="M13 20 Q18 24 23 20" stroke="#8b2020" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <!-- Nose ring -->
+        <circle cx="20" cy="17" r="1.2" fill="none" stroke="#ffd700" stroke-width="0.8"/>
+        <!-- Earrings -->
+        <circle cx="6" cy="16" r="1.5" fill="#ffd700"/>
+        <circle cx="30" cy="16" r="1.5" fill="#ffd700"/>
+      </g>
+
+      <!-- Hands almost meeting in middle -->
+      <ellipse cx="168" cy="155" rx="5" ry="4" fill="#c8915a" opacity="0.85"/>
+      <ellipse cx="178" cy="153" rx="5" ry="4" fill="#c8a080" opacity="0.85"/>
+
+      <!-- Hearts between them -->
+      <text x="154" y="90" fill="rgba(244,114,182,0.85)" font-size="14" font-family="serif">♥</text>
+      <text x="167" y="78" fill="rgba(251,191,36,0.6)" font-size="9" font-family="serif">♥</text>
+      <text x="178" y="88" fill="rgba(244,114,182,0.65)" font-size="12" font-family="serif">♥</text>
+
+      <!-- Name labels -->
+      <text x="101" y="192" fill="rgba(255,255,255,0.18)" font-size="8" font-family="sans-serif" letter-spacing="2" text-anchor="middle">TIRTH</text>
+      <text x="205" y="192" fill="rgba(255,255,255,0.18)" font-size="8" font-family="sans-serif" letter-spacing="2" text-anchor="middle">RAJU</text>
+
+      <!-- Stars -->
+      <circle cx="40" cy="25" r="1.5" fill="white" opacity="0.7"/>
+      <circle cx="80" cy="12" r="1" fill="white" opacity="0.5"/>
+      <circle cx="155" cy="18" r="1.5" fill="white" opacity="0.8"/>
+      <circle cx="200" cy="8" r="1" fill="white" opacity="0.6"/>
+      <circle cx="20" cy="55" r="1" fill="white" opacity="0.4"/>
+      <circle cx="70" cy="45" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="290" cy="25" r="1" fill="white" opacity="0.5"/>
+      <circle cx="310" cy="60" r="1.5" fill="white" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="cd-section">
+    <div class="cd-section-label">Time left until we finally meet</div>
+    <div class="cd-grid">
+      <div class="cd-box" id="box-d"><span class="cd-num" id="n-d">00</span><div class="cd-lbl">Days</div></div>
+      <div class="cd-box" id="box-h"><span class="cd-num" id="n-h">00</span><div class="cd-lbl">Hours</div></div>
+      <div class="cd-box" id="box-m"><span class="cd-num" id="n-m">00</span><div class="cd-lbl">Minutes</div></div>
+      <div class="cd-box" id="box-s"><span class="cd-num" id="n-s">00</span><div class="cd-lbl">Seconds</div></div>
+    </div>
+  </div>
+
+  <!-- DATE -->
+  <div class="date-badge">
+    <div class="date-badge-inner">
+      📅 &nbsp;May 23, 2026
+      <div class="date-dot"></div>
+      New York City / Hoboken, NJ
+    </div>
+  </div>
+
+  <!-- HOBOKEN PLAN -->
+  <div class="hoboken-card">
+    <div class="hoboken-title"><span>🗽</span> Our Hoboken Date Plan</div>
+    <div class="hoboken-spots">
+
+      <div class="spot">
+        <div class="spot-icon">🚢</div>
+        <div class="spot-info">
+          <div class="spot-name">Hoboken Waterfront Walkway</div>
+          <div class="spot-desc">Manhattan skyline view — perfect for that first hug 🤗</div>
+        </div>
+        <div class="spot-tag tag-view">Must See</div>
+      </div>
+
+      <div class="spot">
+        <div class="spot-icon">🌅</div>
+        <div class="spot-info">
+          <div class="spot-name">Pier A Park</div>
+          <div class="spot-desc">Sunset over the Hudson — pure Bollywood moment guaranteed 🎬</div>
+        </div>
+        <div class="spot-tag tag-date">Romantic</div>
+      </div>
+
+      <div class="spot">
+        <div class="spot-icon">🍜</div>
+        <div class="spot-info">
+          <div class="spot-name">Washington Street</div>
+          <div class="spot-desc">Hoboken's best food street — biryani se pasta tak, sab milega!</div>
+        </div>
+        <div class="spot-tag tag-food">Foodies</div>
+      </div>
+
+      <div class="spot">
+        <div class="spot-icon">☕</div>
+        <div class="spot-info">
+          <div class="spot-name">Little Branch Café area</div>
+          <div class="spot-desc">Cozy café for chai aur baatein that never end 💬</div>
+        </div>
+        <div class="spot-tag tag-walk">Chill</div>
+      </div>
+
+      <div class="spot">
+        <div class="spot-icon">🚇</div>
+        <div class="spot-info">
+          <div class="spot-name">PATH Train to Manhattan</div>
+          <div class="spot-desc">Cross into NYC together — Times Square mein photo toh banta hai!</div>
+        </div>
+        <div class="spot-tag tag-date">Adventure</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOLLYWOOD QUOTES FILM STRIP -->
+  <div class="film-strip">
+    <div class="film-holes">
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+    </div>
+    <div class="film-inner">
+      <div class="film-label">🎬 &nbsp; Now Playing in our story &nbsp; 🎬</div>
+      <div class="film-quote" id="filmQuote">"Tum mile ho toh lagta hai... zindagi mili hai"</div>
+      <div class="hearts-pulse">♥ &nbsp; ♥ &nbsp; ♥</div>
+    </div>
+    <div class="film-holes">
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+    </div>
+  </div>
+
+  <!-- CHIPS -->
+  <div class="chips">
+    <div class="chip">🎵 Bollywood wala pyaar</div>
+    <div class="chip">💃 Rajeshwari ka hero</div>
+    <div class="chip">🗽 Hoboken milna</div>
+    <div class="chip">🎬 Filmy love story</div>
+    <div class="chip">🌸 So many days wait</div>
+    <div class="chip">✈️ Finally together</div>
+  </div>
+
+  <div class="bottom-note">Made with ❤️ by Tirth, only for Rajeshwari 💕</div>
+
+</div>
+
+<!-- ARRIVED SCREEN -->
+<div id="arrivedScreen">
+  <div class="arrived-title">🎊 Aaj ka din aa gaya! 🎊</div>
+  <div class="arrived-sub">Tirth &amp; Rajeshwari finally meet 💕</div>
+  <div class="arrived-hearts">♥ ♥ ♥</div>
+  <div style="margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.3);letter-spacing:1px;font-style:italic;">This moment was worth every second of waiting</div>
+</div>
+
+<script>
+  /* ── STARS ── */
+  (function(){
+    const c = document.getElementById('stars');
+    for(let i=0;i<90;i++){
+      const s = document.createElement('div');
+      s.className = 'star';
+      const sz = Math.random()*2.5+0.5;
+      s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${(Math.random()*4+2).toFixed(1)}s;--delay:${(Math.random()*5).toFixed(1)}s;--max-op:${(Math.random()*0.7+0.3).toFixed(2)}`;
+      c.appendChild(s);
+    }
+  })();
+
+  /* ── PETALS ── */
+  (function(){
+    const c = document.getElementById('petals');
+    const emojis=['🌸','🌺','💮','✨','🌹','🌼'];
+    for(let i=0;i<22;i++){
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      const sz = Math.random()*10+10;
+      p.style.cssText = `left:${Math.random()*100}%;--sz:${sz}px;--fdur:${(Math.random()*9+7).toFixed(1)}s;--fdelay:${(Math.random()*12).toFixed(1)}s;--drift:${(Math.random()*60-30).toFixed(0)}px`;
+      c.appendChild(p);
+    }
+  })();
+
+  /* ── MUSIC ── */
+  const audio = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
+  const lbl = document.getElementById('musicLabel');
+  const note = document.getElementById('musicNote');
+  let playing = false;
+
+  function toggleMusic(){
+    if(!playing){
+      audio.play().then(()=>{
+        playing = true;
+        btn.classList.add('playing');
+        lbl.textContent = 'Playing our song ♪';
+        note.style.animationDuration = '0.5s';
+      }).catch(()=>{ lbl.textContent = 'Add your MP3 as bgMusic src'; });
+    } else {
+      audio.pause();
+      playing = false;
+      btn.classList.remove('playing');
+      lbl.textContent = 'Tap to play our song';
+      note.style.animationDuration = '2s';
+    }
+  }
+
+  document.body.addEventListener('touchstart', function initTouch(){
+    audio.load();
+    document.body.removeEventListener('touchstart', initTouch);
+  }, {once:true, passive:true});
+
+  /* ── COUNTDOWN ── */
+  const meetDate = new Date('2026-05-23T00:00:00-05:00'); // NYC time (EST offset)
+  const ids = { d:'n-d', h:'n-h', m:'n-m', s:'n-s' };
+  const boxIds = { d:'box-d', h:'box-h', m:'box-m', s:'box-s' };
+  const prev = { d:-1, h:-1, m:-1, s:-1 };
+
+  function pad(n){ return String(Math.floor(n)).padStart(2,'0'); }
+
+  function tick(){
+    const now = new Date();
+    const diff = meetDate - now;
+    if(diff <= 0){
+      document.getElementById('arrivedScreen').classList.add('show');
+      clearInterval(timer);
+      launchFireworks();
+      return;
+    }
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    const vals = {d,h,m,s};
+
+    for(const key in vals){
+      if(vals[key] !== prev[key]){
+        const el = document.getElementById(ids[key]);
+        const box = document.getElementById(boxIds[key]);
+        el.textContent = pad(vals[key]);
+        el.classList.remove('bump');
+        void el.offsetWidth;
+        el.classList.add('bump');
+        box.classList.remove('flash');
+        void box.offsetWidth;
+        box.classList.add('flash');
+        prev[key] = vals[key];
+      }
+    }
+  }
+
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  /* ── FIREWORKS ── */
+  function launchFireworks(){
+    const emojis = ['🎊','✨','💕','🎉','❤️','🌹','🎬','💃','🎵'];
+    let count = 0;
+    const iv = setInterval(()=>{
+      if(count++ > 30){ clearInterval(iv); return; }
+      const fw = document.createElement('div');
+      fw.className = 'fw';
+      fw.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      fw.style.left = Math.random()*90+'%';
+      fw.style.top = Math.random()*80+'%';
+      document.body.appendChild(fw);
+      setTimeout(()=>fw.remove(), 1500);
+    }, 150);
+  }
+
+  /* ── BOLLYWOOD QUOTES ── */
+  const quotes = [
+    '"Tum mile ho toh lagta hai... zindagi mili hai"',
+    '"Kuch kuch hota hai... tum nahi samjhoge"',
+    '"Pyaar dosti hai — aur dosti pyaar"',
+    '"Aankhon mein teri ajab si adayen hain"',
+    '"Tere bina zindagi se koi shikwa toh nahi"',
+    '"Pehli nazar mein kaisa jadoo kar diya"',
+    '"Kal ho na ho — but May 23 zaroor hoga!"',
+    '"Dil dhadakne do... Hoboken mein milte hain"',
+    '"Jab se tujhe dekha hai, neend udh gayi meri"',
+    '"So many days of waiting — one lifetime of togetherness"',
+  ];
+  let qi = 0;
+  const qEl = document.getElementById('filmQuote');
+
+  setInterval(()=>{
+    qi = (qi+1) % quotes.length;
+    qEl.style.opacity = '0';
+    setTimeout(()=>{
+      qEl.textContent = quotes[qi];
+      qEl.style.opacity = '1';
+      qEl.style.transition = 'opacity 0.6s ease';
+    }, 500);
+  }, 5000);
+</script>
+
+</body>
+</html>
